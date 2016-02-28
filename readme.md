@@ -1,7 +1,13 @@
-## React Router with Hot Loader Boilerplate
+## react-router-hmr-boilerplate
+
+Boilerplate for React Router app with webpack hot reload
 
 ### Dependencies
 * React
 * React Router
 * React Bootstrap
-* Webpack config with React Hot Loader from https://github.com/srn/react-webpack-boilerplate
+* Webpack and Hot Module Replacement Template from https://github.com/srn/react-webpack-boilerplate
+* Node 5, NPM 3
+
+### Start it up
+```npm start```

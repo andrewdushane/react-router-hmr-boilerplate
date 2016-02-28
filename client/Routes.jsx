@@ -7,8 +7,10 @@ export default class Routes extends Component {
 
   render() {
     return(
-      <Router history={browserHistory} component={Layout}>
-        <Route path="/" component={Home} />
+      <Router history={browserHistory}>
+        <Route path="/" component={Layout}>
+          <IndexRoute component={Home} />
+        </Route>
       </Router>
     );
   }
