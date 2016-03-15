@@ -50,9 +50,33 @@ module.exports = {
 
   module: {
     loaders: [
-      {test: /\.scss$/, loader: 'style!css!autoprefixer?browsers=last 2 version!sass?outputStyle=expanded'}
+      { test: /\.scss$/, loader: 'style!css!autoprefixer?browsers=last 2 version!sass?outputStyle=expanded'},
+      { test: /\.css$/, loader: 'style!css'},
+      { test: /\.css$/, loader: 'style!css', include: /node_modules/ },
+      { test: /\.md$/, loader: "html!markdown?gfm=true" },
+      { test: /\.pdf$/, loader: "file?mimetype=image/pdf&name=img/[hash].[ext]" },
+      { test: /\.gif$/, loader: "url?limit=10000&mimetype=image/gif&name=img/[hash].[ext]" },
+      { test: /\.jpg$/, loader: "url?limit=10000&mimetype=image/jpg&name=img/[hash].[ext]" },
+      { test: /\.png$/, loader: "url?limit=10000&mimetype=image/png&name=img/[hash].[ext]" },
+      { test: /\.woff(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=application/font-woff" },
+      { test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=application/font-woff" },
+      { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=application/octet-stream" },
+      { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: "file" },
+      { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=image/svg+xml" }
     ],
+
+    postcss: (webpack) => {
+      return [
+        autoprefixer({
+          browsers: ['last 2 versions'],
+        }),
+        postcssImport({
+          addDependencyTo: webpack,
+        }),
+      ];
+    },
 
     noParse: /\.min\.js/
   }
+
 };

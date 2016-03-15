@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 
 import { Col } from 'react-bootstrap';
 
-export default class Home extends Component {
+export default class About extends Component {
 
   render() {
     return(
       <Col>
         <p>
-          Hello, world.
+          This is about.
         </p>
       </Col>
     );
